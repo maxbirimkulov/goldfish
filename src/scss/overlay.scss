@@ -1,0 +1,241 @@
+.overlay{
+  display: flex;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #00000080;
+  justify-content: center;
+  align-items: center;
+}
+.popup{
+  position: relative;
+  width: 427px;
+  background: white;
+  border-radius: 9px;
+  display: flex;
+  justify-content: center;
+  padding: 15px 40px;
+  &__title{
+    font-family: 'Trebuchet MS',sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px;
+    color: #2A2A2A;
+    margin-bottom: 25px;
+  }
+  &__logins{
+    font-family: 'Trebuchet MS',sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 22px;
+    color: #2A2A2A;
+    position: relative;
+
+    flex-direction: row;
+    border-bottom: 2px solid #2A2A2A12;
+    width: 100%;
+    padding-bottom: 7px;
+    margin-bottom: 20px;
+      display: flex;
+  }
+  &__login{
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 30%;
+      &::before{
+        display: flex;
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: #2A2A2A;
+        bottom: -8px;
+      }
+  }
+  &__register{
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 70%;
+  }
+  &__logins2{
+    font-family: 'Trebuchet MS',sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 22px;
+    color: #2A2A2A;
+    position: relative;
+
+    flex-direction: row;
+    border-bottom: 2px solid #2A2A2A12;
+    width: 100%;
+    padding-bottom: 7px;
+    margin-bottom: 20px;
+      display: flex;
+
+  }
+  &__login2{
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 30%;
+  }
+  &__register2{
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    &::before{
+      content: "";
+      display: flex;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: #2A2A2A;
+      bottom: -8px;
+    }
+  }
+  &__input{
+    padding-left: 15px;
+    width: 100%;
+    height: 35px;
+    border-radius: 9px;
+    background: transparent;
+    border: 2px solid #2A2A2A38;
+  }
+  &__hr{
+    width: 100%;
+    height: 2px;
+    background: #FB791B;
+    margin: 4px 0 2px;
+  }
+  &__close{
+    position: absolute;
+    top: 0;
+    right: -62px;
+    cursor: pointer;
+  }
+}
+
+
+
+.form__password{
+  display: flex;
+  justify-content: flex-end;
+  text-decoration: none;
+
+  font-family: 'Trebuchet MS',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 91.1%;
+  color: #2A2A2A;
+  margin-bottom: 30px;
+}
+.form__login-sms{
+  font-family: 'Trebuchet MS',sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  color: #2A2A2A;
+  width: 100%;
+  text-decoration: none;
+
+}
+.form__login-public{
+  font-family: 'Trebuchet MS',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #2A2A2A;
+  width: 100%;
+  text-decoration: none;
+}
+.form__icons{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  align-items: center;
+}
+.form__facebook, .form__vk{
+  position: relative;
+  cursor: pointer;
+  transition: 2s;
+}
+.form__facebook::before{
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #D9D9D9;
+}
+.form__vk::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #D9D9D9;
+}
+.popup__btn{
+  margin: 0 auto;
+  width: 274px;
+  height: 49px;
+  background: linear-gradient(184.53deg, #F9A43F 5.27%, #FB791B 91.78%);
+  border-radius: 9px;
+  border: none;
+  margin-top: 15px;
+  margin-left: 30px;
+  cursor: pointer;
+
+
+  font-family: 'Trebuchet MS',sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 26px;
+  color: #FFFFFF;
+}
+
+.right_span{
+  text-align: right;
+}
+.label__password-before{
+  position: relative;
+}
+.label__password-before::before{
+  content: "мининум 6 символов";
+  position: absolute;
+  right: 0;
+  font-family: 'Trebuchet MS',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 91.1%;
+  color: #2A2A2A;
+  opacity: 0.68;
+}
+.checkbox-block{
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+}

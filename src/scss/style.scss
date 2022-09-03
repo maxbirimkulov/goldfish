@@ -1,0 +1,80 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  scroll-behavior: smooth;
+}
+body{
+  position: relative;
+  background: #FFFBF8;
+}
+.container{
+  margin: 0 auto;
+  max-width: 100%;
+  width: 1110px;
+}
+.title{
+  font-family: 'Trebuchet MS',sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 37px;
+  color: #363636;
+}
+.title__white{
+  font-family: 'Trebuchet MS',sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 37px;
+  color: #FFF6EB;
+}
+.active{
+  display: flex;
+}
+@import "./header_first";
+@import "./header__two";
+//@import "./swiper";
+//@import "./catalog";
+//@import "./buy";
+//@import "./evens";
+//@import "./special";
+//@import "./info";
+//@import "./goldfish";
+//@import "./contact";
+//@import "./footer";
+//@import "./footer__two";
+@import "./overlay";
+//@import "./info__center";
+//@import "./warhammer";
+//@import "./evens__index";
+//@import "./overlay__catalog";
+//
+
+
+.goTop{
+  font-family: 'Trebuchet MS',sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+
+  display: inline-block;
+  position: fixed;
+  padding: 10px 25px;
+  bottom: 80px;
+  right: 40px;
+  background: #FB791B;
+  color: white;
+  text-decoration: none;
+  border-radius: 15px;
+  opacity: 0;
+  transition: 4s;
+  z-index: -1000;
+  &_active{
+    opacity: 100;
+    transition: 4s;
+    z-index: 1000;
+  }
+}
