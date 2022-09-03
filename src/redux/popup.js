@@ -13,11 +13,14 @@ const popup = createSlice({
         },
         changeStatus : (state, action) => {
             state.status = action.payload
-        }
+        },
+        closePopup : (state, action) => {
+            state.active = false
+        },
     },
 
 })
 
 
 export default popup.reducer
-export const {openPopup, changeStatus} =  popup.actions
+export const {openPopup, changeStatus, closePopup} =  popup.actions

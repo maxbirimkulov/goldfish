@@ -1,0 +1,118 @@
+.contact__title{
+  font-family: 'Trebuchet MS',sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 37px;
+  color: #2A2A2A;
+  margin-bottom: 26px;
+}
+.contact__style{
+  font-family: 'Trebuchet MS',sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 22px;
+  color: #2A2A2A;
+}
+.contact__info-flex{
+  display: flex;
+  flex-direction: column;
+  row-gap: 23px;
+}
+.contact__svg{
+  display: flex;
+  flex-direction: row;
+  column-gap: 22px;
+  align-items: center;
+}
+.contact__form{
+  display: flex;
+  flex-direction: column;
+}
+.contact__form-title{
+  font-family: 'Trebuchet MS',sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 26px;
+  color: #2A2A2A;
+  margin-top: 35px;
+  margin-bottom: 21px;
+}
+.contact__form-input{
+
+  padding-left: 20px;
+  width: 445px;
+  height: 44px;
+  border: 1px solid #2A2A2A;
+  border-radius: 9px;
+  background: transparent;
+}
+label{
+  font-family: 'Trebuchet MS',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #2A2A2A;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  margin-bottom: 15px;
+
+}
+textarea{
+  resize: none;
+}
+.contact__form-textatea{
+  padding: 14px 20px;
+  width: 445px;
+  height: 88px;
+  border: 1px solid #2A2A2A;
+  background: transparent;
+  border-radius: 9px;
+
+  font-family: 'Trebuchet MS',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #2A2A2A;
+}
+.contact__form-btn{
+  font-family: 'Trebuchet MS',sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 22px;
+  color: #FFFFFF;
+
+  width: 446px;
+  height: 46px;
+  background: linear-gradient(184.53deg, #F9A43F 5.27%, #FB791B 91.78%);
+  border-radius: 9px;
+  border: none;
+}
+.contact__form-info{
+  margin-top: 15px;
+  font-family: 'Trebuchet MS',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 91.1%;
+  color: #000000;
+  opacity: 0.68;
+
+  a{
+    color: #000000;
+  }
+}
+.contact__flex{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.contact{
+  margin-bottom: 85px;
+}

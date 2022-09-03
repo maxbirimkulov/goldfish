@@ -1,0 +1,77 @@
+.catalog{
+  padding: 45px 0 85px;
+
+  &__game{
+    cursor: pointer;
+    border-radius: 9px;
+    width: 540px;
+    max-width: 100%;
+    height: 380px;
+    background: #363636;
+    &-title{
+      margin-top: 5px;
+      margin-left: 32px;
+      font-family: 'Trebuchet MS',sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 21px;
+      color: #FFFFFF;
+      &:hover{
+        color: #F9A43F;
+      }
+    }
+
+  }
+}
+.catalog__game img{
+  width: 540px;
+  height: 334px;
+  border-radius: 9px 9px 0 0;
+}
+.catalog__row{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  column-gap: 30px;
+}
+.catalog__allgame-row{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 21px;
+  row-gap: 30px;
+  width: calc(50% - 10.5px);
+}
+.catalog__card{
+  cursor: pointer;
+  background: #363636;
+  width: 255px;
+  height: 175px;
+  border-radius: 9px;
+  img{
+    border-radius: 9px 9px 0 0;
+    width: 255px;
+    height: 129px;
+    z-index: -100;
+  }
+  &-title{
+    font-family: 'Trebuchet MS',sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    color: #FFFFFF;
+    margin-left: 19px;
+    margin-top: 6px;
+    &:hover{
+      color: #F9A43F;
+    }
+  }
+}
+
+.catalog__video{
+  border-radius: 9px 9px 0 0;
+  width: 100%;
+  height: 334px;
+}

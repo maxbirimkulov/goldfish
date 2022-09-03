@@ -1,0 +1,43 @@
+.footer__two{
+  padding: 30px 0 35px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  &-politic{
+    a{
+      font-family: 'Trebuchet MS',sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 17px;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.44);
+    }
+  }
+&-icons{
+  display: flex;
+  flex-direction: row;
+  column-gap: 15px;
+}
+  &-public{
+    font-family: 'Trebuchet MS',sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 17px;
+    color: rgba(255, 255, 255, 0.44);
+    text-align: right;
+    a{
+      font-family: 'Trebuchet MS',sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 17px;
+      text-align: right;
+
+      color: rgba(255, 255, 255, 0.44);
+
+    }
+  }
+}
