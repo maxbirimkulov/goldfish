@@ -1,0 +1,19 @@
+.oneProduct{
+  &__row{
+    display: flex;
+    justify-content: space-between;
+  }
+  &__left{
+
+    &-img{
+      width: 360px;
+      height: 360px;
+    }
+  }
+  &__right{
+    width: 348px;
+    padding: 29px 34px;
+    height: 688px;box-shadow: 5px 6px 16px rgba(42, 42, 42, 0.16);
+    border-radius: 9px;
+  }
+}

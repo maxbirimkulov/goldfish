@@ -24,7 +24,8 @@ export const cards = createSlice({
     name: 'cards',
     initialState: {
         cards: [],
-        status: ''
+        status: '',
+        error:''
     },
     reducers: {
 
@@ -39,7 +40,7 @@ export const cards = createSlice({
         },
         [getAllCards.rejected] : (state, action) => {
             state.status = 'rejected'
-            state.cards = action.payload
+            state.error = action.payload
         },
 
     }

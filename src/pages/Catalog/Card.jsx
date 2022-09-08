@@ -10,7 +10,10 @@ const Card = ({card}) => {
 
     return (
         <div className='games__card'>
-            <img className='games__card-img' src={card.images} alt=""/>
+            <Link to={`/product/${card._id}`}>
+                <img className='games__card-img' src={card.images} alt=""/>
+            </Link>
+
             <div className='games__card-info'>
                 <p><span>+</span>{card.playCount}</p>
                 <p><span><svg width="12" height="13" viewBox="0 0 12 13" fill="none"
