@@ -10,12 +10,11 @@ import {useDispatch, useSelector} from "react-redux";
 const Catalog = () => {
     const dispatch = useDispatch()
     const [product, setProduct] = useState([])
-    const products = useSelector(s => s)
-    console.log(products)
-    useEffect(() => {
-
-    }, [])
+    const {cards} = useSelector(s => s.cards)
     console.log(cards)
+    useEffect(() => {
+        dispatch(getAllCards())
+    }, [])
     return (
         <div className='games'>
             <div className='games__banner'>
@@ -28,11 +27,11 @@ const Catalog = () => {
                 <div className='games__content'>
                     <CatalogLeft/>
                     <div className='games__right'>
-                        {/*{*/}
-                        {/*    cards.map(card => (*/}
-                        {/*        <Card card={card}/>*/}
-                        {/*    ) )*/}
-                        {/*}*/}
+                        {
+                            cards.map(card => (
+                                <Card card={card}/>
+                            ) )
+                        }
                     </div>
                 </div>
             </div>

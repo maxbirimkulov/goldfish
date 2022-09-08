@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import img from "./card.png"
 import {cards} from "../../redux/cards";
+import {useSelector} from "react-redux";
+import axios from "axios";
+import {Link} from "react-router-dom";
 
 
 const Card = ({card}) => {
+
     return (
         <div className='games__card'>
             <img className='games__card-img' src={card.images} alt=""/>

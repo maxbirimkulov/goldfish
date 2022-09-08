@@ -6,7 +6,7 @@ export const getAllPosts = createAsyncThunk(
     'products/getAllPosts',
     async (_, {rejectWithValue} ) => {
         try {
-            const res = await axios('https://jsonplaceholder.typicode.com/pos')
+            const res = await axios('http://localhost:4444/cards')
 
             if (res.status !== 200){
                 throw new Error('Server error !')
@@ -59,11 +59,11 @@ const products = createSlice({
         },
         [getAllPosts.rejected] : (state, action) => {
             state.status = 'rejected'
-            state.error = action.payload
+            state.cards = action.payload
         },
         [getAllPosts.fulfilled] : (state,action) => {
             state.status = 'success'
-            state.posts = action.payload
+            state.cards = action.payload
         }
     }
 })
