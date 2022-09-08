@@ -5,6 +5,10 @@ import Catalog from "./pages/Catalog/Catalog";
 import Product from "./pages/Product/Product";
 import NotFound from "./pages/NotFound/NotFound";
 import Layout from "./Layout/Layout/Layout";
+import Basket from "./pages/Basket/Basket";
+import Blog from "./pages/Blog/Blog";
+import Order from "./pages/Order/Order";
+import Event from "./pages/Event/Event";
 
 
 function App() {
@@ -16,6 +20,10 @@ function App() {
                 <Route path='' element={<Home/>}/>
                 <Route path='catalog' element={<Catalog />}/>
                 <Route path='product/:id' element={<Product/>}/>
+                <Route path='basket' element={<Basket/>}/>
+                <Route path='blog' element={<Blog/>}/>
+                <Route path='order' element={<Order/>}/>
+                <Route path='event' element={<Event/>}/>
                 <Route path='*' element={<NotFound/>}/>
             </Route>
 
