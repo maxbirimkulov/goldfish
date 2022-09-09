@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import CatalogLeft from "../../components/CatalogLeft";
-import img from './card.png'
-import cards from "../../redux/cards";
 import Card from "./Card";
 import {getAllCards} from "../../redux/cards";
 import {useDispatch, useSelector} from "react-redux";
