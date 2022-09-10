@@ -67,8 +67,8 @@ const Header = () => {
                     <div className="header_two_content">
 
                         <ul className="header__two-list">
-                            <li className="list__catalog"><p
-                                className="list__catalog-a overlay__catalog-btn">Каталог</p></li>
+                            <li className="list__catalog"><Link to='/catalog'
+                                className="list__catalog-a overlay__catalog-btn">Каталог</Link></li>
                             <li><NavLink to="./src/pages/warhammer/index.html">Wharhammer</NavLink></li>
                             <li><NavLink to="/product">Magic:the Cathering</NavLink></li>
                             <li><NavLink to="/events">Мероприятия</NavLink></li>
