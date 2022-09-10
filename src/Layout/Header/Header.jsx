@@ -44,7 +44,7 @@ const Header = () => {
                                         fill="white"/>
                                 </svg>
                             </button>
-                            <button className="">
+                            <Link to="/basket" className="">
                                 <svg width="30" height="27" viewBox="0 0 30 27" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -57,7 +57,7 @@ const Header = () => {
                                         d="M23.5195 26.625C24.7277 26.625 25.707 25.6456 25.707 24.4375C25.707 23.2294 24.7277 22.25 23.5195 22.25C22.3114 22.25 21.332 23.2294 21.332 24.4375C21.332 25.6456 22.3114 26.625 23.5195 26.625Z"
                                         fill="white"/>
                                 </svg>
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
