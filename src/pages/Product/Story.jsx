@@ -1,12 +1,10 @@
 import React from 'react';
-import img from "./card.png"
 import {Link} from "react-router-dom";
+import img from "../Catalog/card.png";
 
-
-const Card = ({card}) => {
-
+const Story = ({card}) => {
     return (
-        <div className='games__card'>
+        <div className='oneProduct__story-card'>
             <Link to={`/product/${card._id}`}>
                 <img className='games__card-img' src={card.images} alt=""/>
             </Link>
@@ -30,7 +28,8 @@ const Card = ({card}) => {
                 <button className='games__card-btns2'>Купить в 1 клик</button>
             </div>
         </div>
+
     );
 };
 
-export default Card;
+export default Story;

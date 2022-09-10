@@ -1,12 +1,10 @@
 import React from 'react';
-import img from "./card.png"
 import {Link} from "react-router-dom";
+import img from "../Catalog/card.png";
 
-
-const Card = ({card}) => {
-
+const Cards = ({card}) => {
     return (
-        <div className='games__card'>
+        <div className='games__cards'>
             <Link to={`/product/${card._id}`}>
                 <img className='games__card-img' src={card.images} alt=""/>
             </Link>
@@ -33,4 +31,4 @@ const Card = ({card}) => {
     );
 };
 
-export default Card;
+export default Cards;
