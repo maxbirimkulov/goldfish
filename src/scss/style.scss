@@ -9,6 +9,7 @@ body{
   position: relative;
   background: #FFFBF8;
 }
+
 .container{
   margin: 0 auto;
   max-width: 100%;
@@ -48,6 +49,7 @@ body{
 @import "./footer__two";
 @import "./overlay";
 @import "./info__center";
+@import "./event";
 @import "./product";
 //@import "./warhammer";
 //@import "./evens__index";
