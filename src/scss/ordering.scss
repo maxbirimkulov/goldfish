@@ -1,0 +1,242 @@
+.ordering{
+  padding: 23px 0 83px;
+  font-family: 'Trebuchet MS',sans-serif;
+  &__checkbox{
+    width: 21px;
+    height: 21px;
+  }
+  &__content{
+    &-top{
+      display: flex;
+      column-gap: 63px;
+    }
+  }
+  &__text{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 17px;
+    color: rgba(42, 42, 42, 0.44);
+  }
+  &__right{
+    padding: 49px 21px 34px 32px;
+    background: #FFFFFF;
+    box-shadow: 5px 6px 16px rgba(42, 42, 42, 0.16);
+    border-radius: 9px;
+    max-height: 230px;
+    width: 395px;
+    &-title{
+      font-style: normal;
+      font-weight: 700;
+      font-size: 19px;
+      line-height: 22px;
+      color: #F9A43F;
+      margin-bottom: 21px;
+      width: 100%;
+    }
+    &-product{
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+      color: #2A2A2A;
+
+    }
+    &-products{
+      display: flex;
+      flex-direction: column;
+      row-gap: 15px;
+      justify-content: center;
+    }
+  }
+  &__subtitle{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px;
+    color: #2A2A2A;
+  }
+  &__left, &__bottom{
+    display: flex;
+    flex-direction: column;
+    row-gap: 21px;
+
+  }
+  &__login{
+    color: #F9A43F;
+    border-bottom:2px #F9A43F solid;
+    padding-bottom:1px;
+    cursor: pointer;
+  }
+  &__select{
+    display: flex;
+    flex-direction: row;
+    column-gap: 33px;
+    width: 100%;
+    align-items: center;
+    &-text, &-text2{
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      color: #2A2A2A;
+      width: 8%;
+    }
+    &-text2{
+      width: 5%;
+    }
+    &-input{
+      background: #FFFFFF;
+      border: 1px solid rgba(217, 217, 217, 0.39);
+      border-radius: 9px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+      color: #2A2A2A;
+      padding: 18px 0 14px 18px;
+      opacity: 0.45;
+      width: 540px;
+
+    }
+  }
+  &__icon{
+    position: absolute;
+    top: 59%;
+    left: -38px;
+    transform: translateY(-50%);
+    z-index: -1;
+  }
+  &__check{
+    position: relative;
+  }
+  &__delivery{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 52px;
+    row-gap: 23px;
+    width: 60%;
+    &-card{
+      display: flex;
+      column-gap: 24px;
+      align-items: center;
+      width: 300px;
+    }
+    &-block{
+      position: relative;
+    }
+    &-title{
+      margin-top: 85px;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 26px;
+      color: #2A2A2A;
+      margin-bottom: 21px;
+    }
+    &-icon{
+      font-size: 25px;
+    }
+    &-subtitle{
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 7px;
+      color: #2A2A2A;
+    }
+    &-price{
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      min-width: 196px;
+      color: #2A2A2A;
+    }
+  }
+  &__pay{
+    display: flex;
+    column-gap: 44px;
+  }
+  &__block{
+    display: flex;
+    column-gap: 20px;
+    &-agree{
+      &_active{
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: #2A2A2A;
+      }
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+      color: #000000;
+
+      opacity: 0.6;
+
+    }
+    &-login{
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+
+      color: #2A2A2A;
+    }
+  }
+  &__total{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px;
+    color: #2A2A2A;
+    &-price{
+      font-style: normal;
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 37px;
+
+      color: #2A2A2A;
+    }
+  }
+  &__btn{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 22px;
+    padding: 14px 93px;
+    color: #FFFFFF;
+    background: linear-gradient(184.53deg, #F9A43F 5.27%, #FB791B 91.78%);
+    border-radius: 9px;
+    border: none;
+    outline: none;
+    margin-top: 46px;
+    &-block{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  &__sums{
+    display: flex;
+    flex-direction: column;
+    row-gap: 17px;
+  }
+  &__sum{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 22px;
+
+    color: #2A2A2A;
+
+  }
+
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}

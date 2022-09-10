@@ -7,8 +7,9 @@ import NotFound from "./pages/NotFound/NotFound";
 import Layout from "./Layout/Layout/Layout";
 import Basket from "./pages/Basket/Basket";
 import Blog from "./pages/Blog/Blog";
-import Order from "./pages/Order/Order";
+
 import Event from "./pages/Event/Event";
+import Ordering from "./pages/Order/Ordering";
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
                 <Route path='product/:id' element={<Product/>}/>
                 <Route path='basket' element={<Basket/>}/>
                 <Route path='blog' element={<Blog/>}/>
-                <Route path='order' element={<Order/>}/>
+                <Route path='ordering' element={<Ordering/>}/>
                 <Route path='event' element={<Event/>}/>
                 <Route path='*' element={<NotFound/>}/>
             </Route>
