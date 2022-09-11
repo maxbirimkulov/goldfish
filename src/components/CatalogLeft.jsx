@@ -1,13 +1,20 @@
 import React, {useState} from 'react';
+import {categories, count} from '../utils/localdata'
+import {useDispatch, useSelector} from "react-redux";
+import {amountCount, cards, changeCategory} from "../redux/cards";
+import {NavLink} from "react-router-dom";
+
 
 const CatalogLeft = () => {
+    const {filter} = useSelector(state => state.cards)
     const [active, setActive] = useState(false)
+    const [active2, setActive2] = useState(false)
     const [open, setOpen] = useState(false)
     const [open2, setOpen2] = useState(false)
     const [open3, setOpen3] = useState(false)
     const [open4, setOpen4] = useState(false)
     const [open5, setOpen5] = useState(false)
-
+    const dispatch = useDispatch()
     return (
         <div className='games__left'>
             <p className='games__left-title'>Все Категории <span onClick={() => {
@@ -31,24 +38,15 @@ const CatalogLeft = () => {
             {
                 open && <>
                     <ul className='games__left-list'>
-                        <li className='games__left-item'>Вечериночные игры</li>
-                        <li className='games__left-item'>Вечериночные игры</li>
-                        <li className='games__left-item'>Вечериночные игры</li>
-                        <li className='games__left-item'>Вечериночные игры</li>
-                        <li className='games__left-item'>Вечериночные игры</li>
-                        <li className='games__left-item'>Вечериночные игры</li>
-                        <li className='games__left-item'>Вечериночные игры</li>
-                        <li className='games__left-item'>Вечериночные игры</li>
-                        <li className='games__left-item'>Вечериночные игры</li>
-                        <li className='games__left-item'>Вечериночные игры</li>
-                        <li className='games__left-item'>Вечериночные игры</li>
+                        {
+                            categories.map((item)=>(
+                                    <li className={`games__left-item ${filter.category === item ? 'games__left-item_active' : ''}`}   onClick={()=> {
+                                        dispatch(changeCategory(item))
+                                    }} >{item}</li>
+                            ))
+                        }
                     </ul>
-                    <p className='games__left-title'>Warhammer 40000</p>
-                    <p className='games__left-title'>Warhammer 40000</p>
-                    <p className='games__left-title'>Warhammer 40000</p>
-                    <p className='games__left-title'>Warhammer 40000</p>
-                    <p className='games__left-title'>Warhammer 40000</p>
-                    <p className='games__left-title'>Warhammer 40000</p>
+
                     <p className='games__left-title'>Warhammer 40000</p>
                 </>
             }
@@ -123,14 +121,13 @@ const CatalogLeft = () => {
                 open5 && <>
                     <input className='games__left-range' type="range"/>
                     <ul className='games__left-list2'>
-                        <li className='games__left-item2'>Любое</li>
-                        <li className='games__left-item2'>1</li>
-                        <li className='games__left-item2'>2</li>
-                        <li className='games__left-item2'>3</li>
-                        <li className='games__left-item2'>4</li>
-                        <li className='games__left-item2'>5</li>
-                        <li className='games__left-item2'>6</li>
-                        <li className='games__left-item2'>Больше</li>
+                        {
+                            count.map((item) => (
+                                <li onClick={() => dispatch(amountCount(item))} className='games__left-item2'>{item} лет</li>
+                            ))
+
+                        }
+
                     </ul>
                 </>
             }

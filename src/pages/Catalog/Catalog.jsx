@@ -5,14 +5,14 @@ import {getAllCards} from "../../redux/cards";
 import {useDispatch, useSelector} from "react-redux";
 
 
+
 const Catalog = () => {
     const dispatch = useDispatch()
     const [product, setProduct] = useState([])
-    const {cards} = useSelector(s => s.cards)
-    console.log(cards)
+    const {cards,filter} = useSelector(s => s.cards)
     useEffect(() => {
-        dispatch(getAllCards())
-    }, [])
+        dispatch(getAllCards(filter))
+    }, [filter])
     return (
         <div className='games'>
             <div className='games__banner'>

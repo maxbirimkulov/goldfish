@@ -4,9 +4,9 @@ import axios from "axios";
 
 export const getAllCards = createAsyncThunk(
     'cards/getAllCards',
-    async (_, {rejectWithValue}) => {
+    async (filter, {rejectWithValue}) => {
         try {
-            const res = await axios(`http://localhost:4444/cards`)
+            const res = await axios(`http://localhost:4444/cards?age=${filter.playCount}`)
             if (res.status !== 200) {
                 throw new Error('Server error !')
             }
@@ -25,10 +25,27 @@ export const cards = createSlice({
     initialState: {
         cards: [],
         status: '',
-        error:''
+        error:'',
+        filter: {
+            category:'',
+            playCount: ''
+
+        }
     },
     reducers: {
+        changeCategory: (state, action) =>{
+            state.filter = {
+                ...state.filter,
+                category: action.payload
+            }
 
+        },
+        amountCount: (state, action) => {
+            state.filter = {
+                ...state.filter,
+                playCount: action.payload
+            }
+        }
     },
     extraReducers: {
         [getAllCards.pending] : (state, action) => {
@@ -49,5 +66,5 @@ export const cards = createSlice({
 
 export default cards.reducer
 
-export const {} = cards.actions
+export const {changeCategory, amountCount} = cards.actions
 

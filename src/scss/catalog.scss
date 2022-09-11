@@ -75,3 +75,9 @@
   width: 100%;
   height: 334px;
 }
+
+.games__left-item{
+    &_active {
+      color: red!important;
+    }
+}
