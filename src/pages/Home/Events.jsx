@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from "react-router-dom"
 const Events = () => {
     return (
         <section id="evens" className="evens">
@@ -71,7 +71,9 @@ const Events = () => {
                                     будет с тем,кого убили..</p>
                         </div>
                     </div>
-                    <button className="evens__btn">Показать еще</button>
+                    <Link to="/event">
+                        <button className="evens__btn">Показать еще</button>
+                    </Link>
                 </div>
             </div>
         </section>

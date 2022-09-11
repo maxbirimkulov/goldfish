@@ -6,7 +6,7 @@ import {useDispatch} from "react-redux";
 import {openPopup} from "../../redux/popup";
 
 const Header = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     return (
         <header id="header" className="header">
 
@@ -67,11 +67,16 @@ const Header = () => {
                     <div className="header_two_content">
 
                         <ul className="header__two-list">
+<<<<<<< HEAD
+                            <li className="list__catalog"><NavLink to="/catalog"
+                                className="list__catalog-a overlay__catalog-btn">Каталог</NavLink></li>
+=======
                             <li className="list__catalog"><Link to='/catalog'
                                 className="list__catalog-a overlay__catalog-btn">Каталог</Link></li>
+>>>>>>> 578cb305d1aea56ff80eddf245b996941abe7383
                             <li><NavLink to="./src/pages/warhammer/index.html">Wharhammer</NavLink></li>
                             <li><NavLink to="/product">Magic:the Cathering</NavLink></li>
-                            <li><NavLink to="/events">Мероприятия</NavLink></li>
+                            <li><NavLink to="/event">Мероприятия</NavLink></li>
                             <li><NavLink to="/aboutcenter">О центре</NavLink></li>
                             <li><NavLink to="/contact">Контакты</NavLink></li>
                         </ul>
