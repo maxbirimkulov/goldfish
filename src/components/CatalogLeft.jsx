@@ -1,8 +1,23 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {age, categories, count} from '../utils/localdata'
 import {useDispatch, useSelector} from "react-redux";
-import {getCountPlayers, changeCategory, getAgePlayers, sortPricePlayers, getOnlySale} from "../redux/cards";
+import {
+    getCountPlayers,
+    changeCategory,
+    getAgePlayers,
+    sortPricePlayers,
+    getOnlySale,
+    changeCountplayersFrom,
+    changeCountplayersTo,
+    changeAgeplayersTo,
+    changeAgeplayersFrom
+} from "../redux/cards";
 import {NavLink} from "react-router-dom";
+import MinimumDistanceSlider from "./Ranges/RangePlayers";
+import RangeSlider from "./Ranges/RangePlayers";
+import CountPlayer from "./Ranges/RangePlayers";
+import RangeAges from "./Ranges/RangeAges";
+import AgePlayer from "./Ranges/RangeAges";
 
 
 const CatalogLeft = () => {
@@ -18,6 +33,32 @@ const CatalogLeft = () => {
     const [from, setFrom] = useState(0
     )
     const [to, setTo] = useState({to: 0})
+
+
+
+    const [valueFromPlayer, setValueFromPlayer] = useState(filter.countPlayer.from || 1)
+    const [valueToPlayer, setValueToPlayer] = useState(filter.countPlayer.to || 10)
+
+    const [valueFromAge, setValueFromAge] = useState(filter.age.from || 6)
+    const [valueToAge, setValueToAge] = useState(filter.age.to || 20)
+
+
+    useEffect(() => {
+        dispatch(changeCountplayersFrom(valueFromPlayer))
+    }, [valueFromPlayer])
+
+    useEffect(() => {
+        dispatch(changeCountplayersTo(valueToPlayer))
+    }, [valueToPlayer])
+
+    useEffect(() => {
+        dispatch(changeAgeplayersFrom(valueFromAge))
+    }, [valueFromAge])
+
+    useEffect(() => {
+        dispatch(changeAgeplayersTo(valueToAge))
+    }, [valueToAge])
+
     const dispatch = useDispatch()
     return (
         <div className='games__left'>
@@ -75,13 +116,13 @@ const CatalogLeft = () => {
 
                         </div>
                     </div>
-                    <input className='games__left-range' type="range"/>
-                    <div className='games__left-price2'>
-                        <label htmlFor="">
-                            <input onChange={() => dispatch(getOnlySale('sale=true'))} value={'sale=true'} type="checkbox"/>
-                            только со скидкой
-                        </label>
-                    </div>
+                    {/*<RangeSlider/>*/}
+                    {/*<div className='games__left-price2'>*/}
+                    {/*    <label htmlFor="">*/}
+                    {/*        <input onChange={() => dispatch(getOnlySale('sale=true'))} value={'sale=true'} type="checkbox"/>*/}
+                    {/*        только со скидкой*/}
+                    {/*    </label>*/}
+                    {/*</div>*/}
                 </div>
             }
             {
@@ -90,17 +131,30 @@ const CatalogLeft = () => {
 </svg>
 </span></p>
             }
+
             {
-                open3 && <ul className='games__left-list'>
-                    {
-                        age.map(item => (
-                            <label htmlFor="">
-                                {item}
-                                <input onChange={() => dispatch(getAgePlayers(item))} type="checkbox"/>
-                            </label>
-                        ))
-                    }
-                </ul>
+                open3 &&
+                <div>
+                    <div className='games__left-price' >
+                        <div className='games__left-price'>
+                            <p>От</p>
+                            <input min={6} max={19} value={valueFromAge} onChange={(e) => setValueFromAge(e.target.value)} className='games__left-input' type="number"/>
+
+                        </div>
+                        <div className='games__left-price'>
+                            <p>До</p>
+                            <input max={20} min={7} value={valueToAge} onChange={(e) => setValueToAge(e.target.value)} className='games__left-input' type="number"/>
+
+                        </div>
+                    </div>
+                  <AgePlayer setValueFromAge={setValueFromAge} setValueToAge={setValueToAge}/>
+                    {/*<div className='games__left-price2'>*/}
+                    {/*    <label htmlFor="">*/}
+                    {/*        <input onChange={() => dispatch(getOnlySale('sale=true'))} value={'sale=true'} type="checkbox"/>*/}
+                    {/*        только со скидкой*/}
+                    {/*    </label>*/}
+                    {/*</div>*/}
+                </div>
             }
             {
                 active && <p onClick={() => setOpen4(!open4)} className='games__left-title'>Наличие<span><svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -126,16 +180,27 @@ const CatalogLeft = () => {
 </span></p>
             }
             {
-                open5 && <>
-                    <input className='games__left-range' type="range"/>
-                    <ul className='games__left-list2'>
-                        {
-                            count.map(item => (
-                                <li onClick={() => dispatch(getCountPlayers(item))}>{item}</li>
-                            ))
-                        }
-                    </ul>
-                </>
+                open5 && <div>
+                    <div className='games__left-price' >
+                        <div className='games__left-price'>
+                            <p>От</p>
+                            <input min={1} max={9} value={valueFromPlayer} onChange={(e) => setValueFromPlayer(e.target.value)} className='games__left-input' type="number"/>
+
+                        </div>
+                        <div className='games__left-price'>
+                            <p>До</p>
+                            <input min={2} max={10}  value={valueToPlayer} onChange={(e) => setValueToPlayer(e.target.value)} className='games__left-input' type="number"/>
+
+                        </div>
+                    </div>
+                    <CountPlayer setValueFromPlayer={setValueFromPlayer} setValueToPlayer={setValueToPlayer}/>
+                    {/*<div className='games__left-price2'>*/}
+                    {/*    <label htmlFor="">*/}
+                    {/*        <input onChange={() => dispatch(getOnlySale('sale=true'))} value={'sale=true'} type="checkbox"/>*/}
+                    {/*        только со скидкой*/}
+                    {/*    </label>*/}
+                    {/*</div>*/}
+                </div>
             }
             <button className='games__btn'>Сбросить фильтр</button>
         </div>

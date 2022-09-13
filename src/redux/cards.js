@@ -6,7 +6,7 @@ export const getAllCards = createAsyncThunk(
     'cards/getAllCards',
     async (filter, {rejectWithValue}) => {
         try {
-            const res = await axios(`http://localhost:4444/cards?category=${filter.category}&players=${filter.countPlayer}&age=${filter.getAge}&sale=${filter.sale}`)
+            const res = await axios(`http://localhost:4444/cards?category=${filter.category}&players=${filter.countPlayer.from}-${filter.countPlayer.to}&age=${filter.age.from}-${filter.age.to}`)
             console.log(filter)
             if (res.status !== 200) {
                 throw new Error('Server error !')
@@ -29,8 +29,14 @@ export const cards = createSlice({
         error:'',
         filter: {
             category:'',
-            countPlayer: '',
-            getAge: '',
+            countPlayer: {
+                from: 1,
+                to: 10
+            },
+            age: {
+                from: 6,
+                to: 20
+            },
             sale: '',
             from: 0
         }
@@ -40,12 +46,6 @@ export const cards = createSlice({
             state.filter = {
                 ...state.filter,
                 category: action.payload
-            }
-        },
-        getCountPlayers: (state, action) =>{
-            state.filter = {
-                ...state.filter,
-                countPlayer: action.payload
             }
         },
         getAgePlayers: (state, action) =>{
@@ -65,7 +65,35 @@ export const cards = createSlice({
                 ...state.filter,
                 sale: action.payload
             }
+        },
+        changeCountplayersFrom: (state, action)=> {
+            state.filter.countPlayer = {
+                    ...state.filter.countPlayer,
+                    from: action.payload
+            }
+        },
+        changeCountplayersTo: (state, action)=> {
+            state.filter.countPlayer = {
+                    ...state.filter.countPlayer,
+                    to: action.payload
+
+            }
+        },
+        changeAgeplayersTo: (state, action)=> {
+            state.filter.age = {
+                ...state.filter.age,
+                to: action.payload
+
+            }
+        },
+        changeAgeplayersFrom: (state, action)=> {
+            state.filter.age = {
+                ...state.filter.age,
+                from: action.payload
+
+            }
         }
+
     },
     extraReducers: {
         [getAllCards.pending] : (state, action) => {
@@ -86,5 +114,5 @@ export const cards = createSlice({
 
 export default cards.reducer
 
-export const {changeCategory, getCountPlayers, getAgePlayers, sortPricePlayers, getOnlySale} = cards.actions
+export const {changeCategory, getCountPlayers, getAgePlayers, sortPricePlayers, getOnlySale, changeCountplayersTo, changeCountplayersFrom, changeAgeplayersTo, changeAgeplayersFrom} = cards.actions
 
