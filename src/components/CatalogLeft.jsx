@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
-import {categories, count} from '../utils/localdata'
+import {age, categories, count} from '../utils/localdata'
 import {useDispatch, useSelector} from "react-redux";
-import {amountCount, cards, changeCategory} from "../redux/cards";
+import {getCountPlayers, changeCategory, getAgePlayers, sortPricePlayers, getOnlySale} from "../redux/cards";
 import {NavLink} from "react-router-dom";
 
 
 const CatalogLeft = () => {
     const {filter} = useSelector(state => state.cards)
+    const {priceSale} = useSelector(state => state.cards.filter)
     const [active, setActive] = useState(false)
     const [active2, setActive2] = useState(false)
     const [open, setOpen] = useState(false)
@@ -14,6 +15,9 @@ const CatalogLeft = () => {
     const [open3, setOpen3] = useState(false)
     const [open4, setOpen4] = useState(false)
     const [open5, setOpen5] = useState(false)
+    const [from, setFrom] = useState(0
+    )
+    const [to, setTo] = useState({to: 0})
     const dispatch = useDispatch()
     return (
         <div className='games__left'>
@@ -62,19 +66,21 @@ const CatalogLeft = () => {
                     <div className='games__left-price' >
                         <div className='games__left-price'>
                             <p>От</p>
-                            <input className='games__left-input' type="number"/>
+                            <input value={from} onChange={(e) => dispatch(sortPricePlayers(setFrom(e.target.value)))} className='games__left-input' type="text"/>
 
                         </div>
                         <div className='games__left-price'>
                             <p>До</p>
-                            <input className='games__left-input' type="number"/>
+                            <input onChange={(e) => dispatch(sortPricePlayers(setTo(setTo({from: e.target.value}))))} className='games__left-input' type="number"/>
 
                         </div>
                     </div>
                     <input className='games__left-range' type="range"/>
                     <div className='games__left-price2'>
-                        <input type="checkbox"/>
-                        <p>Только со скидкой</p>
+                        <label htmlFor="">
+                            <input onChange={() => dispatch(getOnlySale('sale=true'))} value={'sale=true'} type="checkbox"/>
+                            только со скидкой
+                        </label>
                     </div>
                 </div>
             }
@@ -86,12 +92,14 @@ const CatalogLeft = () => {
             }
             {
                 open3 && <ul className='games__left-list'>
-                    <li className='games__left-item3'><input type="checkbox"/>3-5 лет</li>
-                    <li className='games__left-item3'><input type="checkbox"/>3-5 лет</li>
-                    <li className='games__left-item3'><input type="checkbox"/>3-5 лет</li>
-                    <li className='games__left-item3'><input type="checkbox"/>3-5 лет</li>
-                    <li className='games__left-item3'><input type="checkbox"/>3-5 лет</li>
-                    <li className='games__left-item3'><input type="checkbox"/>3-5 лет</li>
+                    {
+                        age.map(item => (
+                            <label htmlFor="">
+                                {item}
+                                <input onChange={() => dispatch(getAgePlayers(item))} type="checkbox"/>
+                            </label>
+                        ))
+                    }
                 </ul>
             }
             {
@@ -122,12 +130,10 @@ const CatalogLeft = () => {
                     <input className='games__left-range' type="range"/>
                     <ul className='games__left-list2'>
                         {
-                            count.map((item) => (
-                                <li onClick={() => dispatch(amountCount(item))} className='games__left-item2'>{item} лет</li>
+                            count.map(item => (
+                                <li onClick={() => dispatch(getCountPlayers(item))}>{item}</li>
                             ))
-
                         }
-
                     </ul>
                 </>
             }
