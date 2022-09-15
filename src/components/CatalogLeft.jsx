@@ -10,6 +10,8 @@ import {
     changeCountplayersFrom,
     changeCountplayersTo,
     changeAgeplayersTo,
+    changePriceTo,
+    changePriceFrom,
     changeAgeplayersFrom
 } from "../redux/cards";
 import {NavLink} from "react-router-dom";
@@ -18,6 +20,8 @@ import RangeSlider from "./Ranges/RangePlayers";
 import CountPlayer from "./Ranges/RangePlayers";
 import RangeAges from "./Ranges/RangeAges";
 import AgePlayer from "./Ranges/RangeAges";
+import RangePrice from "./Ranges/RangePrice";
+import PriceBar from "./Ranges/RangePrice";
 
 
 const CatalogLeft = () => {
@@ -43,6 +47,19 @@ const CatalogLeft = () => {
     const [valueToAge, setValueToAge] = useState(filter.age.to || 20)
 
 
+    const [valueFromPrice, setValueFromPrice] = useState(filter.price.from || 0)
+    const [valueToPrice, setValueToPrice] = useState(filter.price.to || 20000)
+
+
+      const resetFilter= () =>{
+        setValueFromPlayer(1)
+        setValueToPlayer(10)
+        setValueFromAge(6)
+        setValueToAge(20)
+        setValueFromPrice(0)
+        setValueToPrice(20000)
+    }
+
     useEffect(() => {
         dispatch(changeCountplayersFrom(valueFromPlayer))
     }, [valueFromPlayer])
@@ -58,6 +75,14 @@ const CatalogLeft = () => {
     useEffect(() => {
         dispatch(changeAgeplayersTo(valueToAge))
     }, [valueToAge])
+
+    useEffect(() => {
+        dispatch(changePriceFrom(valueFromPrice))
+    }, [valueFromPrice])
+
+    useEffect(() => {
+        dispatch(changePriceTo(valueToPrice))
+    }, [valueToPrice])
 
     const dispatch = useDispatch()
     return (
@@ -107,15 +132,16 @@ const CatalogLeft = () => {
                     <div className='games__left-price' >
                         <div className='games__left-price'>
                             <p>От</p>
-                            <input value={from} onChange={(e) => dispatch(sortPricePlayers(setFrom(e.target.value)))} className='games__left-input' type="text"/>
+                            <input min={0} max={19000} value={valueFromPrice} onChange={(e) => setValueFromPrice(e.target.value)} className='games__left-input' type="number"/>
 
                         </div>
                         <div className='games__left-price'>
                             <p>До</p>
-                            <input onChange={(e) => dispatch(sortPricePlayers(setTo(setTo({from: e.target.value}))))} className='games__left-input' type="number"/>
+                            <input min={1} max={20000} value={valueToPrice} onChange={(e) => setValueToPrice(e.target.value)} className='games__left-input' type="number"/>
 
                         </div>
                     </div>
+                    <PriceBar setValueFromPrice={setValueFromPrice} setValueToPrice={setValueToPrice}/>
                     {/*<RangeSlider/>*/}
                     {/*<div className='games__left-price2'>*/}
                     {/*    <label htmlFor="">*/}
@@ -166,10 +192,6 @@ const CatalogLeft = () => {
             {
                 open4 && <ul className='games__left-list'>
                     <li className='games__left-item3'><input type="checkbox"/>в наличии</li>
-                    <li className='games__left-item3'><input type="checkbox"/>в наличии</li>
-                    <li className='games__left-item3'><input type="checkbox"/>в наличии</li>
-                    <li className='games__left-item3'><input type="checkbox"/>в наличии</li>
-                    <li className='games__left-item3'><input type="checkbox"/>в наличии</li>
                 </ul>
             }
 
@@ -202,7 +224,7 @@ const CatalogLeft = () => {
                     {/*</div>*/}
                 </div>
             }
-            <button className='games__btn'>Сбросить фильтр</button>
+            <button type={'button'} onClick={()=> resetFilter()} className='games__btn'>Сбросить фильтр</button>
         </div>
     );
 };

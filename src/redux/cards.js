@@ -37,6 +37,10 @@ export const cards = createSlice({
                 from: 6,
                 to: 20
             },
+            price:{
+                from:0,
+                to:20000
+            },
             sale: '',
             from: 0
         }
@@ -92,6 +96,18 @@ export const cards = createSlice({
                 from: action.payload
 
             }
+        },
+        changePriceTo: (state, action)=> {
+            state.filter.price = {
+                ...state.filter.price,
+                to: action.payload
+            }
+        },
+        changePriceFrom: (state, action)=> {
+            state.filter.price = {
+                ...state.filter.price,
+                from: action.payload
+            }
         }
 
     },
@@ -114,5 +130,5 @@ export const cards = createSlice({
 
 export default cards.reducer
 
-export const {changeCategory, getCountPlayers, getAgePlayers, sortPricePlayers, getOnlySale, changeCountplayersTo, changeCountplayersFrom, changeAgeplayersTo, changeAgeplayersFrom} = cards.actions
+export const {changeCategory, changePriceTo,changePriceFrom, getCountPlayers, getAgePlayers, sortPricePlayers, getOnlySale, changeCountplayersTo, changeCountplayersFrom, changeAgeplayersTo, changeAgeplayersFrom} = cards.actions
 
