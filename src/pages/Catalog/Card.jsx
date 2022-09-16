@@ -1,12 +1,14 @@
 import React from 'react';
 import img from "./card.png"
 import {Link} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {AddProduct} from '../../redux/basket'
 
 
 const Card = ({card}) => {
     const dispatch = useDispatch()
+    const basket = useSelector(state => state.reducer.basket.order)
+
 
     const [product, setProduct] = React.useState({
         id: card._id,
@@ -37,7 +39,7 @@ const Card = ({card}) => {
             <p className='games__card-descr'>{card.title}</p>
             <p className='games__card-price'>{card.price} ₽</p>
             <div className='games__card-btns'>
-                <button onClick={() => card._id === product.id ? dispatch(AddProduct(product)) : '' } className='games__card-btns1'>В корзину</button>
+                <button  disabled={!!basket.find(item => item.id === card._id)} onClick={() => card._id === product.id ? dispatch(AddProduct(product)) : '' } className='games__card-btns1'>В корзину</button>
                 <button className='games__card-btns2'>Купить в 1 клик</button>
             </div>
         </div>

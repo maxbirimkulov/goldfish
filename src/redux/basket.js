@@ -10,12 +10,14 @@ const basket = createSlice({
     reducers: {
         AddProduct: (state, action) => {
             state.order = [...state.order, action.payload]
-
         },
         RemoveProduct: (state, action) => {
             state.order = state.order.filter(item => item.id !== action.payload)
+        },
+        RemoveAllProducts: (state) => {
+            state.order = []
         }
     }
 })
 export default basket.reducer
-export const {AddProduct, RemoveProduct} = basket.actions
+export const {AddProduct, RemoveProduct, RemoveAllProducts} = basket.actions

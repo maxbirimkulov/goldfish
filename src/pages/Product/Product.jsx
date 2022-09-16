@@ -19,10 +19,11 @@ import Story from "./Story";
 const Product = () => {
     const params = useParams()
     const dispatch = useDispatch()
-    const {product,status,error} = useSelector(s => s.product)
+    const {product,status,error} = useSelector(s => s.reducer.product)
+
     const [open, setOpen] = useState(false)
     const [open2, setOpen2] = useState(false)
-    const {cards} = useSelector(s => s.cards)
+    const {cards} = useSelector(s => s.reducer.cards)
 
     const [tab, setTab] = useState(false)
     const [tab2, setTab2] = useState(false)

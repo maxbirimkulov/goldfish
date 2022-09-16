@@ -165,6 +165,9 @@
       height: 34px;
       border: none;
       color: #FFFFFF;
+      &:disabled {
+        background: grey;
+      }
     }
     &-btns2 {
       font-weight: 700;
