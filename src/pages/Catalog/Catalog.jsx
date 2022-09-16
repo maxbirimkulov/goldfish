@@ -9,7 +9,7 @@ import {useDispatch, useSelector} from "react-redux";
 const Catalog = () => {
     const dispatch = useDispatch()
     const [product, setProduct] = useState([])
-    const {cards,filter} = useSelector(s => s.cards)
+    const {cards,filter} = useSelector(s => s.reducer.cards)
     useEffect(() => {
         dispatch(getAllCards(filter))
     }, [filter])

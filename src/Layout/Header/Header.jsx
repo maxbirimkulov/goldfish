@@ -2,11 +2,13 @@ import React from 'react';
 import Logo from './logo.svg'
 import Search from './search.svg'
 import {NavLink, Link} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {openPopup} from "../../redux/popup";
 
 const Header = () => {
     const dispatch = useDispatch();
+    const basket = useSelector(state => state.reducer.basket.order);
+    console.log(basket)
     return (
         <header id="header" className="header">
 
@@ -44,7 +46,7 @@ const Header = () => {
                                         fill="white"/>
                                 </svg>
                             </button>
-                            <Link to="/basket" className="">
+                            <Link  to="/basket" className="">
                                 <svg width="30" height="27" viewBox="0 0 30 27" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -57,6 +59,7 @@ const Header = () => {
                                         d="M23.5195 26.625C24.7277 26.625 25.707 25.6456 25.707 24.4375C25.707 23.2294 24.7277 22.25 23.5195 22.25C22.3114 22.25 21.332 23.2294 21.332 24.4375C21.332 25.6456 22.3114 26.625 23.5195 26.625Z"
                                         fill="white"/>
                                 </svg>
+                                {basket.length}
                             </Link>
                         </div>
                     </div>

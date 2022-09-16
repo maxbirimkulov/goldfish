@@ -25,8 +25,8 @@ import PriceBar from "./Ranges/RangePrice";
 
 
 const CatalogLeft = () => {
-    const {filter} = useSelector(state => state.cards)
-    const {priceSale} = useSelector(state => state.cards.filter)
+    const {filter} = useSelector(state => state.reducer.cards)
+    const {priceSale} = useSelector(state => state.reducer.cards.filter)
     const [active, setActive] = useState(false)
     const [active2, setActive2] = useState(false)
     const [open, setOpen] = useState(false)

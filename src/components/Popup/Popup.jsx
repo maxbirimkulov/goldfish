@@ -4,7 +4,7 @@ import {changeStatus, closePopup} from "../../redux/popup";
 
 const Popup = () => {
     const dispatch = useDispatch()
-    const {active, status} = useSelector((s) => s.popup )
+    const {active, status} = useSelector((s) => s.reducer.popup )
     return (
         <div className="overlay" style={{display: active ? 'flex' : 'none'}} >
             <div className="popup">
