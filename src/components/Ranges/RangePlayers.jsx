@@ -2,17 +2,22 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import {useEffect} from "react";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {changeCountplayersFrom, changeCountplayersTo, changePriceFrom, changePriceTo} from "../../redux/cards";
+import debounce from '@material-ui/core/utils/debounce';
 
 
 
 function CountPlayer({setValueToPlayer, setValueFromPlayer}) {
-    const {filter} = useSelector(s => s.cards)
+    const {filter} = useSelector(s => s.reducer.cards)
+    const dispatch = useDispatch()
     const [value, setValue] = React.useState([filter.countPlayer.from || 1, filter.countPlayer.to || 10]);
 
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
+    const rangeChange = (event, newValue) => {
+        setValue(newValue)
+        dispatch(changeCountplayersFrom(newValue[0]))
+        dispatch(changeCountplayersTo(newValue[1]))
+    }
 
     useEffect(() => {
         setValue([filter.countPlayer.from, value[1]])
@@ -37,8 +42,8 @@ function CountPlayer({setValueToPlayer, setValueFromPlayer}) {
                 step={1}
                 marks
                 min={1}
-                value={value}
-                onChange={handleChange}
+                defaultValue={value}
+                onChange={debounce(rangeChange, 1000)}
                 valueLabelDisplay="auto"
                 max={10}
             />

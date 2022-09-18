@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {age, categories, count} from '../utils/localdata'
 import {useDispatch, useSelector} from "react-redux";
+
 import {
     getCountPlayers,
     changeCategory,
@@ -60,29 +61,9 @@ const CatalogLeft = () => {
         setValueToPrice(20000)
     }
 
-    useEffect(() => {
-        dispatch(changeCountplayersFrom(valueFromPlayer))
-    }, [valueFromPlayer])
 
-    useEffect(() => {
-        dispatch(changeCountplayersTo(valueToPlayer))
-    }, [valueToPlayer])
 
-    useEffect(() => {
-        dispatch(changeAgeplayersFrom(valueFromAge))
-    }, [valueFromAge])
 
-    useEffect(() => {
-        dispatch(changeAgeplayersTo(valueToAge))
-    }, [valueToAge])
-
-    useEffect(() => {
-        dispatch(changePriceFrom(valueFromPrice))
-    }, [valueFromPrice])
-
-    useEffect(() => {
-        dispatch(changePriceTo(valueToPrice))
-    }, [valueToPrice])
 
     const dispatch = useDispatch()
     return (
@@ -141,7 +122,7 @@ const CatalogLeft = () => {
 
                         </div>
                     </div>
-                    <PriceBar setValueFromPrice={setValueFromPrice} setValueToPrice={setValueToPrice}/>
+                    <PriceBar  setValueFromPrice={setValueFromPrice} setValueToPrice={setValueToPrice}/>
                     {/*<RangeSlider/>*/}
                     {/*<div className='games__left-price2'>*/}
                     {/*    <label htmlFor="">*/}

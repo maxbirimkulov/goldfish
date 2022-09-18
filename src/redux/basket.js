@@ -12,7 +12,7 @@ const basket = createSlice({
             state.order = [...state.order, action.payload]
         },
         RemoveProduct: (state, action) => {
-            state.order = state.order.filter(item => item.id !== action.payload)
+            state.order = state.order.filter(item => item._id !== action.payload)
         },
         RemoveAllProducts: (state) => {
             state.order = []

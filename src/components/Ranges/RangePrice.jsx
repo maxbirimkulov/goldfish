@@ -2,19 +2,26 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import {useEffect} from "react";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import debounce from '@material-ui/core/utils/debounce';
+import {useState} from "react";
+import {changePriceFrom, changePriceTo} from "../../redux/cards";
+
 
 
 
 function PriceBar({setValueFromPrice, setValueToPrice}) {
+    const dispatch = useDispatch()
+    const {filter} = useSelector(s => s.reducer.cards)
+    const [value, setValue] = React.useState([filter.price.from || 0, filter.price.to || 20000])
 
-    const {filter} = useSelector(s => s.cards)
 
-    const [value, setValue] = React.useState([filter.price.from || 0, filter.price.to || 20000]);
+    const rangeChange = (event, newValue) => {
+        setValue(newValue)
+        dispatch(changePriceFrom(newValue[0]))
+        dispatch(changePriceTo(newValue[1]))
+    }
 
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
 
     useEffect(() => {
         setValue([filter.price.from, value[1]])
@@ -37,8 +44,8 @@ function PriceBar({setValueFromPrice, setValueToPrice}) {
         <Box >
             <Slider
                 min={0}
-                value={value}
-                onChange={handleChange}
+                defaultValue={value}
+                onChange={debounce(rangeChange, 1000)}
                 valueLabelDisplay="auto"
                 max={20000}
             />

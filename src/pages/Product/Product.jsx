@@ -10,6 +10,7 @@ import NotFound from "../NotFound/NotFound";
 import {getAllCards} from "../../redux/cards";
 import Cards from "./Cards";
 import Story from "./Story";
+import {AddProduct} from "../../redux/basket";
 
 
 
@@ -20,7 +21,7 @@ const Product = () => {
     const params = useParams()
     const dispatch = useDispatch()
     const {product,status,error} = useSelector(s => s.reducer.product)
-
+    const basket = useSelector(state => state.reducer.basket.order);
     const [open, setOpen] = useState(false)
     const [open2, setOpen2] = useState(false)
     const {cards} = useSelector(s => s.reducer.cards)
@@ -151,7 +152,7 @@ const Product = () => {
                                 </div>
 
                                 <div className='oneProduct__right-btns'>
-                                    <button className='oneProduct__right-btn oneProduct__right-btn-orange'>В корзину</button>
+                                    <button disabled={basket.filter(item => item._id === product._id ).length} onClick={() => dispatch(AddProduct(product))} className='oneProduct__right-btn oneProduct__right-btn-orange'>В корзину</button>
                                     <button className='oneProduct__right-btn '>Купить в 1 клик</button>
                                 </div>
 

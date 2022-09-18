@@ -10,14 +10,6 @@ const Card = ({card}) => {
     const basket = useSelector(state => state.reducer.basket.order)
 
 
-    const [product, setProduct] = React.useState({
-        id: card._id,
-        img: card.images,
-        title: card.title,
-        price: card.price,
-        priceSale: card.priceSale
-    })
-
     return (
         <div className='games__card'>
             <Link to={`/product/${card._id}`}>
@@ -39,7 +31,7 @@ const Card = ({card}) => {
             <p className='games__card-descr'>{card.title}</p>
             <p className='games__card-price'>{card.price} ₽</p>
             <div className='games__card-btns'>
-                <button  disabled={!!basket.find(item => item.id === card._id)} onClick={() => card._id === product.id ? dispatch(AddProduct(product)) : '' } className='games__card-btns1'>В корзину</button>
+                <button disabled={basket.filter(item => item._id === card._id ).length} onClick={() => dispatch(AddProduct(card))} className='games__card-btns1'>В корзину</button>
                 <button className='games__card-btns2'>Купить в 1 клик</button>
             </div>
         </div>

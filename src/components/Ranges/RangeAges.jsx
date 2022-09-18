@@ -2,17 +2,26 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import {useEffect} from "react";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {
+    changeAgeplayersFrom,
+    changeAgeplayersTo,
+    changeCountplayersFrom,
+    changeCountplayersTo
+} from "../../redux/cards";
+import debounce from "@material-ui/core/utils/debounce";
 
 
 
 function AgePlayer({setValueFromAge, setValueToAge}) {
-    const {filter} = useSelector(s => s.cards)
+    const {filter} = useSelector(s => s.reducer.cards)
     const [value, setValue] = React.useState([filter.age.from || 6, filter.age.to || 20]);
-
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
+    const dispatch = useDispatch()
+    const rangeChange = (event, newValue) => {
+        setValue(newValue)
+        dispatch(changeAgeplayersFrom(newValue[0]))
+        dispatch(changeAgeplayersTo(newValue[1]))
+    }
 
     useEffect(() => {
         setValue([filter.age.from, value[1]])
@@ -37,8 +46,8 @@ function AgePlayer({setValueFromAge, setValueToAge}) {
                 step={1}
                 marks
                 min={6}
-                value={value}
-                onChange={handleChange}
+                defaultValue={value}
+                onChange={debounce(rangeChange, 1000)}
                 valueLabelDisplay="auto"
                 max={20}
             />

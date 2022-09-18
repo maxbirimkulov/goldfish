@@ -171,6 +171,10 @@
      &-orange{
        color: white;
        background: linear-gradient(184.53deg, #F9A43F 5.27%, #FB791B 91.78%);
+       &:disabled{
+         background: grey;
+         border: none;
+       }
      }
       width: 100%;
       padding: 12px 0;

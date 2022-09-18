@@ -29,14 +29,14 @@ const Basket = () => {
                             {
                                 basket && basket.map(item => (
                                     <div className="basket__card">
-                                        <img className="basket__card-img" src={item.img} alt=""/>
+                                        <img className="basket__card-img" src={item.images} alt=""/>
                                         <h3 className="basket__card-title">{item.title}</h3>
                                         <div className="basket__card-discount-block">
                                             <p className="basket__card-discount">{item.price} </p>
                                             <p className="basket__card-price">{item.priceSale} сом</p>
                                         </div>
                                         {/*<p className="basket__card-count"><span>-</span> 1 шт <span>+</span></p>*/}
-                                        <button onClick={() => dispatch(RemoveProduct(item.id))} className="basket__icon">
+                                        <button onClick={() => dispatch(RemoveProduct(item._id))} className="basket__icon">
                                             <FaTrashAlt/></button>
                                     </div>
                                 ))

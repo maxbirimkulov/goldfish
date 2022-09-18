@@ -6,7 +6,7 @@ export const getAllCards = createAsyncThunk(
     'cards/getAllCards',
     async (filter, {rejectWithValue}) => {
         try {
-            const res = await axios(`http://localhost:4444/cards?category=${filter.category}&players=${filter.countPlayer.from}-${filter.countPlayer.to}&age=${filter.age.from}-${filter.age.to}`)
+            const res = await axios(`http://localhost:4444/cards?category=${filter.category}&players=${filter.countPlayer.from}-${filter.countPlayer.to}&age=${filter.age.from}-${filter.age.to}&from=${filter.price.from}&to=${filter.price.to}`)
             console.log(filter)
             if (res.status !== 200) {
                 throw new Error('Server error !')
